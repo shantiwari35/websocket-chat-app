@@ -26,4 +26,8 @@ socket.on('user-joined', data => {
 
 socket.on('receive', data => {
     append(`${data.name} : ${data.message}`, 'left');
-})
+});
+
+socket.on('left', data => {
+    append(`${data} left the chat`, 'left');
+});

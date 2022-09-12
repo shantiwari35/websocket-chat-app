@@ -25,5 +25,15 @@ io.on('connection', socket => {
         })
     });
 
+    socket.on('disconnect', message => {
+        // console.log(users[socket.id]);
+        socket.broadcast.emit('left', users[socket.id]);
+        delete users[socket.id];
+    });
+
+
 
 })
+// io.on('disconnect', socket => {
+ 
+// });
